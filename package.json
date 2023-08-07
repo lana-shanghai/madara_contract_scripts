@@ -1,0 +1,18 @@
+{
+  "name": "starknet_js_madara",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "declare_hello_starknet": "npx declare_hello_starknet.js",
+    "deploy_hello_starknet": "npx deploy_hello_starknet.js",
+    "invoke_hello_starknet": "npx invoke_hello_starknet.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "starknet": "^5.17.0"
+  }
+}
