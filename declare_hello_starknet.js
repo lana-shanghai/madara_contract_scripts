@@ -18,7 +18,7 @@ const provider = new RpcProvider({
     nodeUrl: "http://localhost:9944",
 });
 
-const account = new Account(provider, '0x4', '0x1234', '1');
+const account = new Account(provider, "0x00c1cf1490de1352865301bb8705143f3ef938f97fdf892f1090dcb5ac7bcd1d", "0x0000000000000000000000000000000000000000000000000000000000000002", "1");
 
 const declareResult = await account.declare(
     {
@@ -26,8 +26,10 @@ const declareResult = await account.declare(
         casm: casm,
     },
     {
-        nonce: account.value,
+        nonce: 1,
         version: 2,
+        maxFee: 100000,
     }
 );
 console.log("declareResult", declareResult);
+
