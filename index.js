@@ -1,9 +1,4 @@
-import { RpcProvider } from 'starknet';
-
-
-const provider = new RpcProvider({
-    nodeUrl: "http://localhost:9944",
-});
+import { provider } from './utils/constants.js';
 
 const lastBlock = await provider.getBlock('latest');
 console.log("lastBlock", lastBlock);

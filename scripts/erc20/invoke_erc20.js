@@ -1,26 +1,18 @@
-import {Account, Contract, RpcProvider} from 'starknet';
-
+import { Account, Contract } from 'starknet';
+import { provider, erc20ClassHash, preDeployedAddress, preDeployedPrivateKey } from '../../utils/constants.js';
 import { readFile } from 'fs/promises';
 
-const casm = JSON.parse(
-  await readFile(
-    new URL('./contracts/erc20/erc20.casm.json', import.meta.url)
-  )
-);
 
 const sierra = JSON.parse(
     await readFile(
-      new URL('./contracts/erc20/erc20.sierra.json', import.meta.url)
+      new URL('../../contracts/erc20/erc20.sierra.json', import.meta.url)
     )
 );
 
-const provider = new RpcProvider({
-    nodeUrl: "http://localhost:9944",
-});
 
-const account = new Account(provider, '0x4', '0x1234', '1');
+const account = new Account(provider, preDeployedAddress, preDeployedPrivateKey, "0");
 
-const erc20Address = ""; // get from deployResponse.contract_address 
+const erc20Address = "YOUR_ERC20_CONTRACT_ADDRESS"; // get from deployResponse.contract_address 
 
 const myTestContract = new Contract(sierra.abi, erc20Address, provider);
 

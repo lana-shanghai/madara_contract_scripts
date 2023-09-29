@@ -1,31 +1,18 @@
-import {Account, Contract, RpcProvider} from 'starknet';
-
+import { Account, Contract } from 'starknet';
+import { provider, preDeployedAddress, preDeployedPrivateKey } from '../../utils/constants.js';
 import { readFile } from 'fs/promises';
 
-const casm = JSON.parse(
-  await readFile(
-    new URL('./contracts/HelloStarknet/HelloStarknet.casm.json', import.meta.url)
-  )
-);
 
 const sierra = JSON.parse(
     await readFile(
-      new URL('./contracts/HelloStarknet/HelloStarknet.sierra.json', import.meta.url)
+      new URL('../../contracts/HelloStarknet/HelloStarknet.sierra.json', import.meta.url)
     )
 );
 
-const provider = new RpcProvider({
-    nodeUrl: "http://localhost:9944",
-});
-
-const account = new Account(provider, "0x00c1cf1490de1352865301bb8705143f3ef938f97fdf892f1090dcb5ac7bcd1d", "0x0000000000000000000000000000000000000000000000000000000000000002", "1");
-
-const testAddress = ""; // get from deployResponse.contract_address 
-
+const account = new Account(provider, preDeployedAddress, preDeployedPrivateKey, "0");
+const testAddress = "YOUR_HELLO_STARKNET_CONTRACT_ADDRESS"; // get from deployResponse.contract_address 
 const myTestContract = new Contract(sierra.abi, testAddress, provider);
-
 myTestContract.connect(account);
-
 
 const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
 
