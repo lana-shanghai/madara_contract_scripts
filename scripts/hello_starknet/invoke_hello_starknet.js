@@ -3,11 +3,7 @@ import { provider, preDeployedAddress, preDeployedPrivateKey } from '../../utils
 import { readFile } from 'fs/promises';
 
 
-const sierra = JSON.parse(
-    await readFile(
-      new URL('../../contracts/HelloStarknet/HelloStarknet.sierra.json', import.meta.url)
-    )
-);
+const sierra = json.parse(fs.readFileSync("/path/to/madara_contract_scripts/contracts/HelloStarknet/HelloStarknet.sierra.json"));
 
 const account = new Account(provider, preDeployedAddress, preDeployedPrivateKey, "0");
 const testAddress = "YOUR_HELLO_STARKNET_CONTRACT_ADDRESS"; // get from deployResponse.contract_address 

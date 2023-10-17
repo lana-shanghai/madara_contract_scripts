@@ -1,9 +1,10 @@
 import { Account, json } from 'starknet';
-import { provider, preDeployedAddress, preDeployedPrivateKey, classHashHelloStarknet } from '../../utils/constants.js';
+import { provider, preDeployedAddress, preDeployedPrivateKey } from '../../utils/constants.js';
 import fs from "fs";
 
-const casm = json.parse(fs.readFileSync("/path/to/madara_contract_scripts/contracts/HelloStarknet/HelloStarknet.casm.json"));
-const sierra = json.parse(fs.readFileSync("/path/to/madara_contract_scripts/contracts/HelloStarknet/HelloStarknet.sierra.json"));
+const casm = json.parse(fs.readFileSync("/path/to/madara_contract_scripts/contracts/ArgentAccountCairo1/ArgentAccount.casm")); // replace with correct path
+const sierra = json.parse(fs.readFileSync("/path/to/madara_contract_scripts/contracts/ArgentAccountCairo1/ArgentAccount.json"));
+
 
 const account = new Account(provider, preDeployedAddress, preDeployedPrivateKey, "0");
 
