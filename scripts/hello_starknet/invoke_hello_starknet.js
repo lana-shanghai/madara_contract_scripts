@@ -1,6 +1,6 @@
-import { Account, Contract } from 'starknet';
+import { Account, Contract, json } from 'starknet';
 import { provider, preDeployedAddress, preDeployedPrivateKey } from '../../utils/constants.js';
-import { readFile } from 'fs/promises';
+import fs from "fs";
 
 
 const sierra = json.parse(fs.readFileSync("/path/to/madara_contract_scripts/contracts/HelloStarknet/HelloStarknet.sierra.json"));

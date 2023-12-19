@@ -1,5 +1,5 @@
 import { Account, json } from 'starknet';
-import { provider, preDeployedAddress, preDeployedPrivateKey, classHashHelloStarknet } from '../../utils/constants.js';
+import { provider, preDeployedAddress, preDeployedPrivateKey } from '../../utils/constants.js';
 import fs from "fs";
 
 const casm = json.parse(fs.readFileSync("/path/to/madara_contract_scripts/contracts/HelloStarknet/HelloStarknet.casm.json"));
